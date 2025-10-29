@@ -10,21 +10,22 @@ namespace TryThree.Pages.Products
         [BindProperty]
         public Product MyProduct { get; set; } = new Product();
 
-        public IActionResult OnGet(int id)
+        public void OnGet(int Id)
         {
             try
             {
-                var product = FakeDB._products.FirstOrDefault(x => x.Id == id);
+                var product = FakeDB._products.FirstOrDefault(x => x.Id == Id);
                 if (product == null)
                 {
                     TempData["Response"] = "Товар не найден!";
-                    return RedirectToPage("Index");
+                    return;
                 }
+
                 MyProduct = product;
-                return Page();
             }
             catch (Exception ex)
             {
+                TempData["Response"] = "Ошибка при загрузке товара!";
                 throw ex;
             }
         }
@@ -56,6 +57,7 @@ namespace TryThree.Pages.Products
             }
             catch (Exception ex)
             {
+                TempData["Response"] = "Ошибка при сохранении товара!";
                 throw ex;
             }
         }

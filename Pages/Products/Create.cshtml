@@ -1,0 +1,45 @@
+﻿@page
+@model TryThree.Pages.Products.CreateModel
+@{
+    ViewData["Title"] = "Добавление товара";
+}
+
+<h2>Добавление нового товара</h2>
+
+@if (TempData["Response"] != null)
+{
+    <p style="color: darkred;">@TempData["Response"]</p>
+}
+
+<form method="post">
+    <table cellpadding="5">
+        <tr>
+            <td><label>Название:</label></td>
+            <td><input asp-for="NewProduct.Name" /></td>
+        </tr>
+        <tr>
+            <td><label>Цена:</label></td>
+            <td><input asp-for="NewProduct.Price" /></td>
+        </tr>
+        <tr>
+            <td><label>Количество:</label></td>
+            <td><input asp-for="NewProduct.Quantity" /></td>
+        </tr>
+        <tr>
+            <td><label>Цвет:</label></td>
+            <td><input asp-for="NewProduct.Color" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center;">
+                <input type="submit" value="Добавить"
+                       style="background-color: lightblue;
+                              border: 1px solid #888;
+                              padding: 5px 15px;
+                              cursor: pointer;" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+<br />
+<a href="/Products/Index">Назад к списку</a>

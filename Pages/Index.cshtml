@@ -1,0 +1,12 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h2>Главная страница</h2>
+<p>Нажмите, чтобы перейти к списку товаров:</p>
+
+<p>
+    <input type="button" value="Перейти к товарам" onclick="location.href='/Products/Index'" />
+</p>

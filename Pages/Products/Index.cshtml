@@ -1,0 +1,45 @@
+﻿@page
+@model TryThree.Pages.Products.IndexModel
+@{
+    ViewData["Title"] = "Список товаров";
+}
+
+<h2>Список товаров</h2>
+@if (TempData["Response"] != null)
+{
+    <p style="color: darkred;">@TempData["Response"]</p>
+}
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse;">
+    <tr style="background-color: #dcdcdc;">
+        <th>ID</th>
+        <th>Название</th>
+        <th>Цена</th>
+        <th>Количество</th>
+        <th>Цвет</th>
+        <th>Редактировать</th>
+    </tr>
+
+    @foreach (var p in Model.ProductsList)
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Name</td>
+            <td>@p.Price</td>
+            <td>@p.Quantity</td>
+            <td>@p.Color</td>
+            <td><a href="/Products/Edit?Id=@p.Id">Редактировать</a></td>
+            <td><a href="/Products/Delete?Id=@p.Id">Удалить</a></td>
+        </tr>
+    }
+</table>
+
+<br />
+
+<form method="get" action="/Products/Create">
+    <input type="submit" value="Добавить товар"
+           style="background-color: lightgreen;
+                  border: 1px solid #888;
+                  padding: 5px 15px;
+                  cursor: pointer;" />
+</form>

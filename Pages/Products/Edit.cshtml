@@ -1,0 +1,39 @@
+﻿@page
+@model TryThree.Pages.Products.EditModel
+@{
+    ViewData["Title"] = "Редактирование товара";
+}
+
+<h2>Редактирование товара</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="MyProduct.Id" />
+
+    <p>
+        <label>Название:</label><br />
+        <input asp-for="MyProduct.Name" />
+    </p>
+
+    <p>
+        <label>Цена:</label><br />
+        <input asp-for="MyProduct.Price" />
+    </p>
+
+    <p>
+        <label>Количество:</label><br />
+        <input asp-for="MyProduct.Quantity" />
+    </p>
+
+    <p>
+        <label>Цвет:</label><br />
+        <input asp-for="MyProduct.Color" />
+    </p>
+
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+</form>
+
+<p>
+    <a href="/Products/Index">Назад к списку</a>
+</p>

@@ -1,0 +1,15 @@
+﻿@page
+@model TryThree.Pages.Products.DeleteModel
+@{
+    ViewData["Title"] = "Удаление товара";
+}
+
+<h2>Удаление товара</h2>
+
+<p>Вы уверены, что хотите удалить товар <strong>@Model.Product.Name</strong>?</p>
+
+<form method="post">
+    <input type="hidden" asp-for="Product.Id" />
+    <button type="submit" class="btn btn-danger">Да, удалить</button>
+    <a href="/Products/Index" class="btn btn-secondary">Отмена</a>
+</form>
